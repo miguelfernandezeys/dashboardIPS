@@ -2,37 +2,8 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <style type="text/css">
-  
-.borde {
-  border:0px;
-  border-right: solid 1px;
-  border-color:#dee2e6; 
-}
-  
-.bordint {
-  
-  border: solid 1px #dee2e6;
-  border-radius: 3%;
-  margin-left: 40px; 
-  
-}
-.bordint1 {
-  
-  border: solid 1px #dee2e6;
-  border-radius: 2%;
-  margin-left: 20px; 
-  
-}
-.main1 {
-margin-top: 1%;
-}
-table{
-
-  margin: auto;
-}
-
-</style>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    
     <!-- Import D3.js -->
     <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
 
@@ -96,10 +67,19 @@ table{
     </div></div>
 
 <div class="row">
-    <div class="col-md-11 bordint1 main1">
-      
+  
 
-    <div ng-controller="TopIPS" id="IPStop">
+  
+    <div class="col-md-11 bordint1 main1">
+
+      <table class="table">
+  <thead>
+    <tr class="tablaips">
+
+</tr></thead></table>
+
+
+  <!--  <div ng-controller="TopIPS" id="IPStop">
       <eys data="dataset"></eys>
       <button ng-click=mejoresIPS()>
         mejores
@@ -108,6 +88,9 @@ table{
         peores
       </button>
     </div>
+-->
+<button class="badbutton">categoria1</button>
+<button class="goodbutton">categoria2</button>
 
 
     </div></div>
@@ -133,7 +116,9 @@ table{
 <footer>
 
 </footer>
-
+<script type="text/javascript">
+tabla();  
+</script>
 
 
 
