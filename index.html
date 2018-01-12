@@ -2,6 +2,37 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
+    <style type="text/css">
+  
+.borde {
+  border:0px;
+  border-right: solid 1px;
+  border-color:#dee2e6; 
+}
+  
+.bordint {
+  
+  border: solid 1px #dee2e6;
+  border-radius: 3%;
+  margin-left: 40px; 
+  
+}
+.bordint1 {
+  
+  border: solid 1px #dee2e6;
+  border-radius: 2%;
+  margin-left: 20px; 
+  
+}
+.main1 {
+margin-top: 1%;
+}
+table{
+
+  margin: auto;
+}
+
+</style>
     <!-- Import D3.js -->
     <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
 
@@ -37,8 +68,37 @@
 
   </head>
   <body ng-app="galatea">
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <h2 class="navbar-brand" href="#"></h2>
+  </nav>
+</header>
+
+<main class="main1">
+  <div class="container-fluid">
+    <div class="row ">
+    <div class="col-md-5  borde">
+
+<div class="row">
+    <div class="col-md-11 bordint1">
+      
+<table class="center">
+  <tr>
+    <td>
     <div ng-controller="Mejoraron" id="IPSmejoraron"></div>
+    </td><td>
     <div ng-controller="Empeoraron" id="IPSempeoraron"></div>
+</td>
+</tr>
+</table>
+
+    </div></div>
+
+<div class="row">
+    <div class="col-md-11 bordint1 main1">
+      
+
     <div ng-controller="TopIPS" id="IPStop">
       <eys data="dataset"></eys>
       <button ng-click=mejoresIPS()>
@@ -48,6 +108,47 @@
         peores
       </button>
     </div>
+
+
+    </div></div>
+
+
+    </div>
+    <div class="col-md-6  bordint1">
+  Gráfica pca
+  
+     </div>
+  
+  </div>
+
+   <div class="row main1">
+    <div class="col-md-11  bordint1">
+      Gráfica 2 comparación
+    </div>
+
+   </div>
+  </div>
+</main>
+
+<footer>
+
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
   </body>
   </html>
