@@ -64,3 +64,68 @@ function donut(dataset, container) {
     .attr("y", radius/5)
     .attr("font-size", 25);
 }
+
+function tabla(){
+  var datasetmal = [
+        { 
+          "id":1,
+          "name":"Clinica 1"
+        },
+        {
+          "id":2,
+          "name":"Clinica 2"
+        },
+        {
+          "id":3,
+          "name":"Clinica 3"
+        }
+    ];
+d3.select(".tablaips").selectAll("tr").data(datasetmal).enter().append("tr").attr("class","ipsre");
+d3.selectAll(".ipsre").append("td").attr("class",function(d,i){return "id";});
+d3.selectAll(".ipsre").append("td").attr("class",function(d,i){return "ips";});
+  d3.selectAll(".id").data(datasetmal).text(function(d){return d.id;});
+  d3.selectAll(".ips").data(datasetmal).text(function(d){return d.name;});
+
+d3.select(".goodbutton").on("click",function(){
+   var dataset = [
+        { 
+          "id":4,
+          "name":"Clinica 4"
+        },
+        {
+          "id":5,
+          "name":"Clinica 5"
+        },
+        {
+          "id":6,
+          "name":"Clinica 6"
+        }
+    ];
+
+ d3.selectAll(".id").data(dataset).text(function(d){return d.id;});
+  d3.selectAll(".ips").data(dataset).text(function(d){return d.name;});
+});
+
+d3.select(".badbutton").on("click",function(){
+   var dataset = [
+        { 
+          "id":4,
+          "name":"Clinica 4"
+        },
+        {
+          "id":5,
+          "name":"Clinica 533"
+        },
+        {
+          "id":6,
+          "name":"Clinica 6"
+        }
+    ];
+
+ d3.selectAll(".id").data(datasetmal).text(function(d){return d.id;});
+  d3.selectAll(".ips").data(datasetmal).text(function(d){return d.name;});
+});
+
+
+}
+
