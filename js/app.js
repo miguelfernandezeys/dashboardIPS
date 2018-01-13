@@ -1,1 +1,3 @@
-var app = angular.module('galatea', ['eys']);
+var app = angular.module('galatea', ['nvd3']);
+
+
