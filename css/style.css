@@ -1,4 +1,7 @@
-  
+.tick line {
+  display: none;
+} 
+ 
 .borde {
   border:0px;
   border-right: solid 1px;
