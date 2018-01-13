@@ -53,9 +53,290 @@ app.controller('Empeoraron' ,function($scope) {
 	donut(dataset, "#IPSempeoraron");
 });
 
-app.controller('Scatter', function($scope) {
+app.controller("scatter", function($scope) {
+    data = [
+            [13.04,-8.78, "insitituo"], 
+            [25.41,-17.93], 
+            [39.32,11.86],
+            [41.53,19.51],
+            [57.96,9.21],
+            [46.68,42.86],
+            [66.05,46.76],
+            [91.04,42.30],
+            [54.65,21.56],
+            [52.67,19.28],
+            [51.22,20.67],
+            [53.25,27.50],
+            [61.94,30.41],
+            [83.56,19.20],
+            [72.18,21.08],
+            [79.58,21.05],
+            [76.67,28.51],
+            [90.67,2.55],
+            [93.67,5.77],
+            [86.47,4.50]
+    ];
+    scatterheat(data, "#scatter")
+});
+
+/*app.controller('Scatter', function($scope) {
 
     $scope.options = {
+              chart: {
+                "type": "scatterChart",
+                "height": 450,
+                "color": function(d){
+                    
+                },
+                "scatter": {
+                  "onlyCircles": false,
+                  "dispatch": {},
+                  "width": null,
+                  "height": null,
+                  "xDomain": null,
+                  "yDomain": null,
+                  "pointDomain": null,
+                  "xRange": null,
+                  "yRange": null,
+                  "pointRange": null,
+                  "forceX": [],
+                  "forceY": [],
+                  "forcePoint": [],
+                  "interactive": true,
+                  "padDataOuter": 0.1,
+                  "padData": false,
+                  "clipEdge": false,
+                  "clipVoronoi": true,
+                  "showVoronoi": false,
+                  "id": 56365,
+                  "interactiveUpdateDelay": 300,
+                  "showLabels": false,
+                  "margin": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 0
+                  },
+                  "duration": 250,
+                  "useVoronoi": true
+                },
+                "showDistX": true,
+                "showDistY": true,
+                "duration": 350,
+                "xAxis": {
+                  "axisLabel": "X Axis",
+                  "dispatch": {},
+                  "axisLabelDistance": 0,
+                  "staggerLabels": false,
+                  "rotateLabels": 0,
+                  "rotateYLabel": true,
+                  "showMaxMin": true,
+                  "height": 60,
+                  "ticks": null,
+                  "width": 75,
+                  "margin": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 0
+                  },
+                  "duration": 250,
+                  "orient": "bottom",
+                  "tickValues": null,
+                  "tickSubdivide": 0,
+                  "tickSize": 6,
+                  "tickPadding": 10,
+                  "domain": [
+                    0,
+                    1
+                  ],
+                  "range": [
+                    0,
+                    1
+                  ]
+                },
+                "yAxis": {
+                  "axisLabel": "Y Axis",
+                  "axisLabelDistance": -5,
+                  "dispatch": {},
+                  "staggerLabels": false,
+                  "rotateLabels": 0,
+                  "rotateYLabel": true,
+                  "showMaxMin": true,
+                  "height": 60,
+                  "ticks": null,
+                  "width": 75,
+                  "margin": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 0
+                  },
+                  "duration": 250,
+                  "orient": "left",
+                  "tickValues": null,
+                  "tickSubdivide": 0,
+                  "tickSize": 6,
+                  "tickPadding": 10,
+                  "domain": [
+                    0,
+                    1
+                  ],
+                  "range": [
+                    0,
+                    1
+                  ]
+                },
+                "zoom": {
+                  "enabled": true,
+                  "scaleExtent": [
+                    1,
+                    10
+                  ],
+                  "useFixedDomain": false,
+                  "useNiceScale": false,
+                  "horizontalOff": false,
+                  "verticalOff": false,
+                  "unzoomEventType": "dblclick.zoom"
+                },
+                "dispatch": {},
+                "legend": {
+                  "dispatch": {},
+                  "width": 400,
+                  "height": 20,
+                  "align": true,
+                  "maxKeyLength": 20,
+                  "rightAlign": true,
+                  "padding": 32,
+                  "updateState": true,
+                  "radioButtonMode": false,
+                  "expanded": false,
+                  "vers": "classic",
+                  "margin": {
+                    "top": 5,
+                    "right": 0,
+                    "bottom": 5,
+                    "left": 0
+                  }
+                },
+                "distX": {
+                  "dispatch": {},
+                  "margin": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 0
+                  },
+                  "width": 400,
+                  "size": 8,
+                  "duration": 250
+                },
+                "distY": {
+                  "dispatch": {},
+                  "margin": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 0
+                  },
+                  "width": 400,
+                  "size": 8,
+                  "duration": 250
+                },
+                "tooltip": {
+                  "duration": 100,
+                  "gravity": "w",
+                  "distance": 25,
+                  "snapDistance": 0,
+                  "classes": null,
+                  "chartContainer": null,
+                  "enabled": true,
+                  "hideDelay": 200,
+                  "headerEnabled": true,
+                  "fixedTop": null,
+                  "offset": {
+                    "left": 0,
+                    "top": 0
+                  },
+                  "hidden": true,
+                  "data": null,
+                  "id": "nvtooltip-65002"
+                },
+                "width": null,
+                "xDomain": null,
+                "yDomain": null,
+                "pointDomain": null,
+                "xRange": null,
+                "yRange": null,
+                "pointRange": null,
+                "forceX": [],
+                "forceY": [],
+                "forcePoint": [],
+                "interactive": true,
+                "padDataOuter": 0.1,
+                "padData": false,
+                "clipEdge": false,
+                "clipVoronoi": true,
+                "showVoronoi": false,
+                "interactiveUpdateDelay": 300,
+                "showLabels": false,
+                "margin": {
+                  "top": 30,
+                  "right": 20,
+                  "bottom": 50,
+                  "left": 75
+                },
+                "useVoronoi": true,
+                "container": null,
+                "showLegend": true,
+                "showXAxis": true,
+                "showYAxis": true,
+                "defaultState": null,
+                "noData": null,
+                "rightAlignYAxis": false
+              },
+              "title": {
+                "enable": false,
+                "text": "Write Your Title",
+                "className": "h4",
+                "css": {
+                  "width": "nullpx",
+                  "textAlign": "center"
+                }
+              },
+              "subtitle": {
+                "enable": false,
+                "text": "Write Your Subtitle",
+                "css": {
+                  "width": "nullpx",
+                  "textAlign": "center"
+                }
+              },
+              "caption": {
+                "enable": false,
+                "text": "Figure 1. Write Your Caption text.",
+                "css": {
+                  "width": "nullpx",
+                  "textAlign": "center"
+                }
+              },
+              "styles": {
+                "classes": {
+                  "with-3d-shadow": true,
+                  "with-transitions": true,
+                  "gallery": false,
+                },
+                "css": {
+                }
+              }
+            }
+
+
+
+
+
+
+
             chart: {
                 type: 'scatterChart',
                 height: 300,
@@ -71,6 +352,7 @@ app.controller('Scatter', function($scope) {
                       "#bcbd22",
                       "#17becf"
                 ],
+
                 scatter: {
                     onlyCircles: false,
                     dispatch:{}
@@ -147,7 +429,9 @@ app.controller('Scatter', function($scope) {
             }
         };
 
-  
+        */
+
+    /*
             $scope.data = [
 
 
@@ -195,9 +479,11 @@ app.controller('Scatter', function($scope) {
                         {"x":86.47,"y":-4.50,"shape":"circle"}
                     ]
                 }
-            ];          
+            ];  
+   
         
 });
+*/
 app.controller('candles', function($scope) {
     $scope.options = {
             chart: {

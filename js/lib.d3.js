@@ -65,6 +65,63 @@ function donut(dataset, container) {
     .attr("font-size", 25);
 }
 
+function scatterheat(dataset, container){
+  var margin = {
+                top: 20, 
+                right:20, 
+                bottom: 20, 
+                left: 20
+              },
+              height = 300 - margin.top - margin.bottom;
+              width = parseInt(d3.select(container).style("width")) - margin.left - margin.right;
+          
+  var max_ = new Array();
+  var min_ = new Array(); 
+  for(let i = 0 ; i <= data.length-1 ; i ++){      
+      max_[i] = d3.max(d3.values(data[i]));
+      min_[i] = d3.min(d3.values(data[i]));
+  }
+
+  var max = Math.max(...max_);
+  var min = Math.min(...min_);
+
+  var heat = d3.scale.linear()
+    .domain([0,max,min])  
+    .range(['#1B5AD9', '#D9401B']); 
+    //#46EDD6 
+    //#F86A52
+  var x = d3.scale.linear()
+    .domain([d3.min(data, function(d){return d[0]}), d3.max(data, function(d) { return d[0]; })])
+    .range([ 0, width ]);
+    
+  var y = d3.scale.linear()
+    .domain([d3.min(data, function(d){return d[1]}), d3.max(data, function(d) { return d[1]; })])
+    .range([ height, 0 ]);
+ 
+  var chart = d3.select(container)
+    .append('svg:svg')
+    .attr('width', width + margin.right + margin.left)
+    .attr('height', height + margin.top + margin.bottom)
+    .attr('class', 'chart')
+
+  var main = chart.append('g')
+    .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+    .attr('width', width)
+    .attr('height', height)
+
+  var g = main.append("svg:g"); 
+    
+  g.selectAll("dots")
+    .data(data)
+    .enter()
+    .append("svg:circle")
+    .attr("fill", function(d){ return heat(d[0],d[1])})
+    .attr("cx", function (d,i) { return x(d[0]); } )
+    .attr("cy", function (d) { return y(d[1]); } )
+    .attr("r", 3)
+
+}
+
 function tabla(){
   var datasetmal = [
         { 

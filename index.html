@@ -41,10 +41,11 @@
     <!-- Import NVD3 AngularJS Library -->
     <script>document.write('<base href="' + document.location + '" />');</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.css"/> 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-nvd3/1.0.5/angular-nvd3.min.js"></script>
+
+    
 
   </head>
   <body ng-app="galatea">
@@ -82,25 +83,26 @@
         </div>
       
         <div class="col-md-6  bordint1">
-          <div ng-controller="Scatter">
+          <div ng-controller="scatter" id="scatter">
             <nvd3 options="options" data="data"></nvd3>
           </div> 
         </div>
       </div>
 
-        <div class="row">
-          <div class="col-md-11  bordint1">
-            <div ng-controller="candles">
-              <nvd3 options="options" data="data"></nvd3>
-            </div>
+      <div class="row">
+        <div class="col-md-11  bordint1">
+          <div ng-controller="candles">
+            <nvd3 options="options" data="data"></nvd3>
           </div>
         </div>
+      </div>
     </div>
   </main>
 
   <footer>
 
   </footer>
+
   <script type="text/javascript">
   tabla();  
   </script>
