@@ -2,6 +2,8 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
+
+    <!-- Import CSS Style -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     
     <!-- Import D3.js -->
@@ -36,105 +38,71 @@
     <script src="js/eys.module.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
 
+    <!-- Import NVD3 AngularJS Library -->
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.css"/> 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-nvd3/1.0.5/angular-nvd3.min.js"></script>
 
   </head>
   <body ng-app="galatea">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <h2 class="navbar-brand" href="#"></h2>
+      </nav>
+    </header>
 
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <h2 class="navbar-brand" href="#"></h2>
-  </nav>
-</header>
+  <main class="main1">
+    <div class="container-fluid">
 
-<main class="main1">
-  <div class="container-fluid">
-    <div class="row ">
-    <div class="col-md-5  borde">
+      <div class="row">
 
-<div class="row">
-    <div class="col-md-11 bordint1">
+        <div class="col-md-5 borde">
+
+          <div class="row">
+            <div class="col-md-11 bordint1">
+              <table class="center">
+                <tr>
+                  <td><div ng-controller="Mejoraron" id="IPSmejoraron"></div></td>
+                  <td><div ng-controller="Empeoraron" id="IPSempeoraron"></div></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 bordint1 main1">
+              <table class="table"><thead><tr class="tablaips"></tr></thead></table>
+              <button class="badbutton">categoria1</button>
+              <button class="goodbutton">categoria2</button>
+            </div>
+          </div>
+        </div>
       
-<table class="center">
-  <tr>
-    <td>
-    <div ng-controller="Mejoraron" id="IPSmejoraron"></div>
-    </td><td>
-    <div ng-controller="Empeoraron" id="IPSempeoraron"></div>
-</td>
-</tr>
-</table>
+        <div class="col-md-6  bordint1">
+          <div ng-controller="Scatter">
+            <nvd3 options="options" data="data"></nvd3>
+          </div> 
+        </div>
+      </div>
 
-    </div></div>
-
-<div class="row">
-  
-
-  
-    <div class="col-md-11 bordint1 main1">
-
-      <table class="table">
-  <thead>
-    <tr class="tablaips">
-
-</tr></thead></table>
-
-
-  <!--  <div ng-controller="TopIPS" id="IPStop">
-      <eys data="dataset"></eys>
-      <button ng-click=mejoresIPS()>
-        mejores
-      </button>
-      <button ng-click=peoresIPS()>
-        peores
-      </button>
+        <div class="row">
+          <div class="col-md-11  bordint1">
+            <div ng-controller="candles">
+              <nvd3 options="options" data="data"></nvd3>
+            </div>
+          </div>
+        </div>
     </div>
--->
-<button class="badbutton">categoria1</button>
-<button class="goodbutton">categoria2</button>
+  </main>
 
+  <footer>
 
-    </div></div>
-
-
-    </div>
-    <div class="col-md-6  bordint1">
-  Gráfica pca
-  
-     </div>
-  
-  </div>
-
-   <div class="row main1">
-    <div class="col-md-11  bordint1">
-      Gráfica 2 comparación
-    </div>
-
-   </div>
-  </div>
-</main>
-
-<footer>
-
-</footer>
-<script type="text/javascript">
-tabla();  
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
+  </footer>
+  <script type="text/javascript">
+  tabla();  
+  </script>
   </body>
-  </html>
-
+</html>
