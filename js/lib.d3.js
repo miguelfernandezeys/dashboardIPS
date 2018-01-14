@@ -31,9 +31,11 @@ function table(dataset, columnas, container){
 
 // Donut Library
 function donut(dataset, container) {
-  var width = 100,
+  var width = 100;
       height = 100,
       radius = Math.min(width, height) / 2;
+
+      console.log(width);
 
   var color  = d3.scale.ordinal()
       .range(["#f39d41","#4682b4"]);
@@ -67,14 +69,14 @@ function donut(dataset, container) {
 
 function scatterheat(dataset, container){
   var margin = {
-                top: 20, 
-                right:20, 
-                bottom: 20, 
-                left: 20
+                top: 10, 
+                right:10, 
+                bottom: 10, 
+                left: 10
               },
-              height = 300 - margin.top - margin.bottom;
+              height = 250 - margin.top - margin.bottom;
               width = parseInt(d3.select(container).style("width")) - margin.left - margin.right;
-          
+                        
   var max_ = new Array();
   var min_ = new Array(); 
   for(let i = 0 ; i <= data.length-1 ; i ++){      
@@ -93,23 +95,68 @@ function scatterheat(dataset, container){
   var x = d3.scale.linear()
     .domain([d3.min(data, function(d){return d[0]}), d3.max(data, function(d) { return d[0]; })])
     .range([ 0, width ]);
-    
+
   var y = d3.scale.linear()
     .domain([d3.min(data, function(d){return d[1]}), d3.max(data, function(d) { return d[1]; })])
-    .range([ height, 0 ]);
- 
+    .range([ height, 0 ]);     
+
+  var legend = d3.select(container).append("svg")
+    .attr("width", width)
+    .style("margin-top","10px")
+    .attr("height", 20)
+
+  var legenda_1 = legend.append("g")
+    .append("rect")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", 20)
+    .attr("height", 20)
+    .attr("fill", "#1B5AD9")
+    
+  var text_legenda1 = legend.append("g")
+    .append("text")
+    .attr("x",25)
+    .attr("y",15)
+    .attr("fill", "gray")
+    .text("Bueno")
+
+  var legenda_2 = legend.append("g")
+    .append("rect")
+    .attr("x", 80)
+    .attr("y", 0)
+    .attr("width", 20)
+    .attr("height", 20)
+    .attr("fill", "#D9401B")
+    
+  var text_legenda2 = legend.append("g")
+    .append("text")
+    .attr("x",105)
+    .attr("y",15)
+    .attr("fill", "gray")
+    .text("Malo")
+
   var chart = d3.select(container)
     .append('svg:svg')
     .attr('width', width + margin.right + margin.left)
     .attr('height', height + margin.top + margin.bottom)
     .attr('class', 'chart')
 
+  var tooltip = d3.select("body").append("div") 
+    .attr("class", "tooltip")       
+    .style("opacity", 0)
+    .style("position", "absolute")
+    .style("border","1px solid #D5D5D5")
+    .style("padding", "5px")
+    .style("border-radius", "5px")
+    .style("font-size", "17px")
+    //.style("font-weight","600");    
+  
   var main = chart.append('g')
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
     .attr('width', width)
     .attr('height', height)
 
-  var g = main.append("svg:g"); 
+  var g = main.append("svg:g") 
     
   g.selectAll("dots")
     .data(data)
@@ -118,8 +165,24 @@ function scatterheat(dataset, container){
     .attr("fill", function(d){ return heat(d[0],d[1])})
     .attr("cx", function (d,i) { return x(d[0]); } )
     .attr("cy", function (d) { return y(d[1]); } )
-    .attr("r", 3)
+    .attr("r", 4)
+    //.attr("opacity", 0.8)
+    .on("mouseover", function(d){
 
+      tooltip.transition()
+        .duration(200)
+        .style("opacity", 1)
+        .style("background", "rgb(255,255,255,.8)")
+        .style("color", "black");
+      tooltip.html(d[2])
+        .style("left", (d3.event.pageX-20) + "px")   
+        .style("top", (d3.event.pageY-50) + "px")
+    })
+    .on("mouseout", function(d) {    
+      tooltip.transition()    
+        .duration(500)    
+        .style("opacity", 0); 
+    })
 }
 
 function tabla(){
