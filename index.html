@@ -47,24 +47,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-nvd3/1.0.5/angular-nvd3.min.js"></script>
 
+
      <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 
+    <!-- Import Lib Graph Library -->
+    <link rel="stylesheet" href="css/lib.styles.css"/>
+    
   </head>
   <body ng-app="galatea">
-    <!--
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <h2 class="navbar-brand" href="#"></h2>
-      </nav>
-    </header>
--->
-
-
-  <main class="main1">
+ 
+    <main class="main1">
     <div class="container-fluid  no-gutters">
       <div class="row">
         <div class="col-md-5 borde">
@@ -111,6 +107,38 @@
         <div class="col-md-6  bordint1 contdat">
           <span class="titlesal">
           <text class="titulo">Recopilación IPS</text></span>
+
+
+  <!--
+  <main class="main1">
+    <div class="container-fluid">
+
+      <div class="row">
+
+        <div class="col-md-5 borde">
+
+          <div class="row">
+            <div class="col-md-11 bordint1">
+              <table class="center">
+                <tr>
+                  <td><div ng-controller="Mejoraron" id="IPSmejoraron"></div></td>
+                  <td><div ng-controller="Empeoraron" id="IPSempeoraron"></div></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 bordint1 main1">
+              <table class="table"><thead><tr class="tablaips"></tr></thead></table>
+              <button class="badbutton">categoria1</button>
+              <button class="goodbutton">categoria2</button>
+            </div>
+          </div>
+        </div>
+       -->
+        <div class="col-md-6  bordint1">
+
           <div ng-controller="scatter" id="scatter">
             <nvd3 options="options" data="data"></nvd3>
           </div> 
@@ -127,6 +155,7 @@
       </div>
     </div>
 
+
   </main>
 
   <footer>
@@ -140,6 +169,7 @@
   $(document).ready(function(){
     $('[data-toggle="tooltip1"]').tooltip(); 
     });
+ 
   </script>
   </body>
 </html>
